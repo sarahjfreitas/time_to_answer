@@ -1,5 +1,10 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sarahjfreitas/time_to_answer.git",
+  "author": "sarahjfreitas <sarahjfreitas@gmail.com>",
+  "license": "MIT"
 }
