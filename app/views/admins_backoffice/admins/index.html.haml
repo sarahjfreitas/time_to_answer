@@ -10,8 +10,7 @@
         %td.small_col= admin.id
         %td= admin.email
         %td.small_col
-          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_admins_backoffice_admin_path(admin.id) , class:"btn btn-primary btn-circle")
-          %a.btn.btn-danger.btn-circle{:type=>"button"}
-            %span.fa.fa-times
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_admins_backoffice_admin_path(admin) , class:"btn btn-primary btn-circle")
+          = link_to('<span class="fa fa-times"></span>'.html_safe, admins_backoffice_admin_path(admin) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: "Deseja realmente excluir este registro?"})
 
 %style .small_col{width: 10%;}
