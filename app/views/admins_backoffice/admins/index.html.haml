@@ -1,0 +1,17 @@
+%h1.page-header Administradores
+%div.table-responsible
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th #
+      %th Email
+      %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_admin_path , class:"btn btn-success btn-circle")
+    -@admins.each do |admin|
+      %tr
+        %td.small_col= admin.id
+        %td= admin.email
+        %td.small_col
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_admins_backoffice_admin_path(admin.id) , class:"btn btn-primary btn-circle")
+          %a.btn.btn-danger.btn-circle{:type=>"button"}
+            %span.fa.fa-times
+
+%style .small_col{width: 10%;}
