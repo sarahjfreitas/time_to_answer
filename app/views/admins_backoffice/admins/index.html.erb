@@ -4,7 +4,9 @@
     <tr>
       <th>#</th>
       <th>Email</th>
-      <th>Ações</th>
+      <th>
+        <%= link_to '<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_admin_path , class:"btn btn-success btn-circle" %>
+      </th>
     </tr>
     <% @admins.each do |admin| %>
       <tr>

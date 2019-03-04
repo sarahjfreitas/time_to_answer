@@ -1,17 +1,28 @@
-class AdminsBackoffice::AdminController < AdminsBackofficeController
+class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :verify_password, only: [:update]
-  before_action :set_admin, only: [:edit, :update]
+  before_action :set_admin, only: [:edit, :update,:new]
   
   def index
     @admins = Admin.all
   end
-  
+ 
+  def new
+  end
+ 
   def edit
   end
 
+  def create
+    @admin = Admin.new(admin_params)
+    if @admin.save
+      redirect_to admins_backoffice_admins_path, notice: "Administrador registrado com sucesso"
+    else
+      render :new
+    end
+  end
   def update
     if @admin.update(admin_params)
-      redirect_to admins_backoffice_admin_index_path, notice: "Administrador atualizado com sucesso"
+      redirect_to admins_backoffice_admins_path, notice: "Administrador atualizado com sucesso"
     else
       render :edit
     end
@@ -20,7 +31,7 @@ class AdminsBackoffice::AdminController < AdminsBackofficeController
   private
 
   def set_admin
-    @admin = Admin.find(params[:id])
+    @admin = params[:id].present? ? Admin.find(params[:id]) : Admin.new
   end
 
   def verify_password
