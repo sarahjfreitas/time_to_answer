@@ -1,0 +1,17 @@
+%h2.page-header Assuntos
+%div.table-responsible
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th #
+      %th Descrição
+      %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_subject_path , class:"btn btn-success btn-circle")
+    -@subjects.each do |subject|
+      %tr
+        %td.small_col= subject.id
+        %td= subject.description
+        %td.small_col
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_admins_backoffice_subject_path(subject) , class:"btn btn-primary btn-circle")
+          = link_to('<span class="fa fa-times"></span>'.html_safe, admins_backoffice_subject_path(subject) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: "Deseja realmente excluir este registro?"})
+  = paginate(@subjects)
+
+%style .small_col{width: 10%;}

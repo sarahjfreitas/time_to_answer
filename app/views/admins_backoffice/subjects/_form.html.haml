@@ -1,0 +1,20 @@
+= link_to('<i class="fa fa-arrow-left"></i> Voltar'.html_safe, admins_backoffice_subjects_path, class: "btn btn-xs btn-default")
+%hr
+  - if @subject.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{:type=>"button", :data-dismiss=>"alert", :aria-hidden=>"true" }x
+      %ul
+        - @subject.errors.full_messages.each do |msg|
+          %li= msg
+
+.panel.panel-default
+  .panel-heading Assunto #{@subject.id}
+  .panel-body
+    = form_with(model: [ :admins_backoffice, @subject ], local: true) do |form|
+      .row
+        .col-md-12.form-group
+          = form.label(:description)
+          = form.text_field(:description, class:'form-control')
+      .pull-right
+        %button.btn.btn-primary{:type=>"submit"}
+          %span.fa.fa-save Salvar
