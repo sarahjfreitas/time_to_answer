@@ -2,9 +2,9 @@
 %div.table-responsible
   %table.table.table-striped.table-bordered.table-hover
     %tr
-      %th #
-      %th Descrição
-      %th Assunto
+      %th= @questions.model.human_attribute_name(:id)
+      %th= @questions.model.human_attribute_name(:description)
+      %th= @questions.model.human_attribute_name(:subject)
       %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_question_path , class:"btn btn-success btn-circle")
     -@questions.each do |question|
       %tr
