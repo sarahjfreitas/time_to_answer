@@ -2,7 +2,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   before_action :set_question, only: [:edit, :update,:destroy]
   
   def index
-    @questions = Question.order('id desc').page(params[:page]).per(20)
+    @questions = Question.includes(:subject).order('id desc').page(params[:page]).per(20)
   end
  
   def new
