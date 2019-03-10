@@ -1,0 +1,19 @@
+%h2.page-header Questões
+%div.table-responsible
+  %table.table.table-striped.table-bordered.table-hover
+    %tr
+      %th #
+      %th Descrição
+      %th Assunto
+      %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_question_path , class:"btn btn-success btn-circle")
+    -@questions.each do |question|
+      %tr
+        %td.small_col= question.id
+        %td= question.description.truncate(80)
+        %td= question.subject.description
+        %td.small_col
+          = link_to('<span class="fa fa-edit"></span>'.html_safe, edit_admins_backoffice_question_path(question) , class:"btn btn-primary btn-circle")
+          = link_to('<span class="fa fa-times"></span>'.html_safe, admins_backoffice_question_path(question) , class:"btn btn-danger btn-circle",method:'delete', data: {confirm: "Deseja realmente excluir este registro?"})
+  = paginate(@questions)
+
+%style .small_col{width: 10%;}
