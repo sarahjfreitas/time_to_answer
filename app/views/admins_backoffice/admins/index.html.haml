@@ -1,9 +1,9 @@
-%h2.page-header Administradores
+%h2.page-header=t('messages.listing', model: @admins.model_name.human(count: 2) )
 %div.table-responsible
   %table.table.table-striped.table-bordered.table-hover
     %tr
-      %th #
-      %th Email
+      %th= @admins.model.human_attribute_name(:id)
+      %th= @admins.model.human_attribute_name(:email)
       %th= link_to('<span class="fa fa-plus"></span>'.html_safe, new_admins_backoffice_admin_path , class:"btn btn-success btn-circle")
     -@admins.each do |admin|
       %tr

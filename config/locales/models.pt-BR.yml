@@ -15,7 +15,7 @@
         other: Questões
       anwser:
         one: Resposta
-        other: Resposta
+        other: Respostas
     attributes:
       admin:
         id: Código

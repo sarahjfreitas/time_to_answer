@@ -8,7 +8,7 @@
           %li= msg
 
 .panel.panel-default
-  .panel-heading Administrador #{@admin.id}
+  .panel-heading=#{@admin.model_name.human @admin.id}
   .panel-body
     = form_with(model: [ :admins_backoffice, @admin ], local: true) do |form|
       .row
