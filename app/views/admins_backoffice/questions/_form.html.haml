@@ -1,4 +1,4 @@
-= link_to('<i class="fa fa-arrow-left"></i> Voltar'.html_safe, admins_backoffice_questions_path, class: "btn btn-xs btn-default")
+=botao_voltar(admins_backoffice_questions_path)
 %hr
   - if @question.errors.any?
     .alert.alert-danger.alert-dismissable
@@ -8,7 +8,7 @@
           %li= msg
 
 .panel.panel-default
-  .panel-heading=#{@question.model_name.human @question.id}
+  .panel-heading=@question.model_name.human + ' ' + @question.id.to_s
   .panel-body
     = form_with(model: [ :admins_backoffice, @question ], local: true) do |form|
       .row
@@ -18,6 +18,4 @@
         .col-md-12.form-group
           = form.label(:description)
           = form.text_area(:description, class:'form-control', rows: 5)
-      .pull-right
-        %button.btn.btn-primary{:type=>"submit"}
-          %span.fa.fa-save Salvar
+      =botao_salvar()

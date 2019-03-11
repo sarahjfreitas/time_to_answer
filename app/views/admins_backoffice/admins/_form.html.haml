@@ -1,4 +1,4 @@
-= link_to('<i class="fa fa-arrow-left"></i> Voltar'.html_safe, admins_backoffice_admins_path, class: "btn btn-xs btn-default")
+=botao_voltar(admins_backoffice_admins_path)
 %hr
   - if @admin.errors.any?
     .alert.alert-danger.alert-dismissable
@@ -21,6 +21,4 @@
         .col-md-6.form-group
           = form.label(:password_confirmation)
           = form.text_field(:password_confirmation, class:'form-control')
-      .pull-right
-        %button.btn.btn-primary{:type=>"submit"}
-          %span.fa.fa-save Salvar
+      =botao_salvar()
