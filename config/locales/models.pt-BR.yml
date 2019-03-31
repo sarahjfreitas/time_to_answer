@@ -13,7 +13,7 @@
       question:
         one: Questão
         other: Questões
-      anwser:
+      answer:
         one: Resposta
         other: Respostas
     attributes:
@@ -41,5 +41,13 @@
         description: Descrição
         subject: Assunto
         subject_id: Assunto
+        created_at: Criado em
+        updated_at: Atualizado em
+      answer:
+        id: Código
+        description: Descrição
+        correct: Correta?
+        question_id: Questão
+        question: Questão
         created_at: Criado em
         updated_at: Atualizado em

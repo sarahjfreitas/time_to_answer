@@ -18,4 +18,17 @@
         .col-md-12.form-group
           = form.label(:description)
           = form.text_area(:description, class:'form-control', rows: 5)
+      %h3=Answer.model_name.human
+      #awnsers
+        .row
+          .col-md-10.form-group
+            = form.label(:description)
+          .col-md-1.form-group
+            = form.label('Correta?')
+          .col-md-1.form-group
+            = form.label(' ')
+        = form.fields_for(:answers) do |answer|
+          = render('answer_fields', f: answer)
+        .links
+          = link_to_add_association('<span class="fa fa-plus"></span> Adicionar Resposta'.html_safe, form, :answers, class:"btn btn-default")
       =botao_salvar()

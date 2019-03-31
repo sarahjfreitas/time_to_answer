@@ -1,0 +1,8 @@
+.nested-fields
+  .row
+    .col-md-10.form-group
+      = f.text_field(:description, class:'form-control')
+    .col-md-1.form-group
+      = f.check_box(:correct, class:'form-control')
+    .col-md-1.form-group
+      =link_to_remove_association("<span class='fa fa-times'></span>".html_safe, f, class: 'btn btn-block btn-default')
