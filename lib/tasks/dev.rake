@@ -60,10 +60,12 @@ namespace :dev do
   task add_questions: :environment do
     Subject.all.each do |subject|
       rand(5..10).times do |i|
-        Question.create!(
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject
-        )
+        question_params = { description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}", subject: subject,  answers_attributes: [] }
+        rand(2..5).times do |j|
+          question_params[:answers_attributes] << { description: Faker::Lorem.sentence, correct: false }
+        end
+        question_params[:answers_attributes].sample[:correct] = true;
+        Question.create!(question_params)
       end
     end
   end
